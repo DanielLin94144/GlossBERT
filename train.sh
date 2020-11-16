@@ -1,0 +1,15 @@
+CUDA_VISIBLE_DEVICES=1,2,3 python run_classifier_WSD_sent.py \
+--task_name WSD \
+--train_data_dir ./Training_Corpora/SemCor/semcor_train_sent_cls_ws.csv \
+--eval_data_dir ./Evaluation_Datasets/semeval2007/semeval2007_test_sent_cls_ws.csv \
+--output_dir results/sent_cls_ws/1314 \
+--bert_model ./uncased_L-12_H-768_A-12/ \
+--do_train \
+--do_eval \
+--do_lower_case \
+--max_seq_length 512 \
+--train_batch_size 50 \
+--eval_batch_size 128 \
+--learning_rate 2e-5 \
+--num_train_epochs 4.0 \
+--seed 1314
