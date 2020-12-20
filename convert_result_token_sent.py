@@ -27,13 +27,13 @@ def main():
     dataset = args.dataset
     input_file_name = args.input_file
     output_dir = args.output_dir
-    train_file_name = './Evaluation_Datasets/'+dataset+'/'+dataset+'.csv'
+    train_file_name = './Evaluation_Datasets/'+dataset+'/'+dataset+'_n.tsv'
     train_data = pd.read_csv(train_file_name,sep="\t",na_filter=False).values
     words_train = []
     for i in range(len(train_data)):
         words_train.append(train_data[i][4]) # get lemmas
 
-    test_file_name = './Evaluation_Datasets/'+dataset+'/'+dataset+'_test_sent_cls.csv'
+    test_file_name = './Evaluation_Datasets/'+dataset+'/'+dataset+'_n_final.tsv'
     test_data = pd.read_csv(test_file_name,sep="\t",na_filter=False).values
 
     seg = [0]
