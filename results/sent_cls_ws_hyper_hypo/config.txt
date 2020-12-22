@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 python run_classifier_WSD_sent.py \
+--task_name WSD \
+--train_data_dir ../word_sense_disambiguation/data/mono/training/semcor/semcor_n_hyper_hypo_final.tsv  \
+--eval_data_dir ../word_sense_disambiguation/data/mono/evaluation/semeval2007/semeval2007_n_hyper_hypo_final.tsv \
+--output_dir results/sent_cls_ws_hyper_hypo/1314 \
+--bert_model ./bert-model/uncased_L-12_H-768_A-12/ \
+--do_train \
+--do_eval \
+--do_lower_case \
+--train_batch_size 32 \
+--eval_batch_size 64 \
+--learning_rate 2e-5 \
+--num_train_epochs 6.0 \
+--seed 1314
