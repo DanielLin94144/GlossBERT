@@ -36,3 +36,7 @@ eval_loss = 0.7947952072743488
 eval_accuracy = 0.9040556312001556
 global_step = 0
 loss = None
+eval_loss = 0.7947815668809673
+eval_accuracy = 0.9040556312001556
+global_step = 0
+loss = None
