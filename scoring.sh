@@ -18,7 +18,7 @@
 #file="sent_cls_ws_base_bbase_cbbase"
 
 #  echo $file
-for file in "sent_cls_ws_base_bbase_cbase_hyper_concatenate"
+for file in "sent_cls_ws_hyper_concatenate_sep"
   for e in {1..6}
   do
     results_folder="./results/$file/1314/$e"
