@@ -18,7 +18,7 @@
 #file="sent_cls_ws_base_bbase_cbbase"
 
 #  echo $file
-for file in "sent_cls_ws_bbase_de"
+for file in "sent_cls_ws_bbase_nl" "sent_cls_ws_bbase_de" "sent_cls_ws_bbase_fr" "sent_cls_ws_bbase_ru" "sent_cls_ws_base_bbase_ru"
   do
     for e in 1 2 3 4 5 6
       do
@@ -37,12 +37,13 @@ for file in "sent_cls_ws_bbase_de"
     #    --eval_batch_size 128 \
     #    --learning_rate 2e-5 \
     #    --seed 1314
-
+      if [ -f "$results_folder/results.txt" ]
+      then
         python ./convert_result_token_sent.py \
           --dataset ALL \
           --input_file $results_folder/results.txt \
           --output_dir $results_folder
-
+      fi
       if [ -f "$results_folder/final_result_ALL.txt" ]
       then
         echo $file/1314/$e
