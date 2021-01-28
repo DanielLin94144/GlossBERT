@@ -18,35 +18,36 @@
 #file="sent_cls_ws_base_bbase_cbbase"
 
 #  echo $file
-for file in "sent_cls_ws_bbase_fr"
-  for e in {1..6}
+for file in "sent_cls_ws_bbase_de"
   do
-    results_folder="./results/$file/1314/$e"
+    for e in 1 2 3 4 5 6
+      do
+        results_folder="./results/$file/1314/$e"
 
-#    export CUDA_VISIBLE_DEVICES=0,1,2,3
+    #    export CUDA_VISIBLE_DEVICES=0,1,2,3
 
-#    python ./run_classifier_WSD_sent.py \
-#    --task_name WSD \
-#    --eval_data_dir ./Evaluation_Datasets/ALL/ALL_n_final.tsv \
-#    --output_dir $results_folder \
-#    --bert_model $results_folder \
-#    --do_test \
-#    --do_eval \
-#    --do_lower_case \
-#    --eval_batch_size 128 \
-#    --learning_rate 2e-5 \
-#    --seed 1314
+    #    python ./run_classifier_WSD_sent.py \
+    #    --task_name WSD \
+    #    --eval_data_dir ./Evaluation_Datasets/ALL/ALL_n_final.tsv \
+    #    --output_dir $results_folder \
+    #    --bert_model $results_folder \
+    #    --do_test \
+    #    --do_eval \
+    #    --do_lower_case \
+    #    --eval_batch_size 128 \
+    #    --learning_rate 2e-5 \
+    #    --seed 1314
 
-    python ./convert_result_token_sent.py \
-      --dataset ALL \
-      --input_file $results_folder/results.txt \
-      --output_dir $results_folder
+        python ./convert_result_token_sent.py \
+          --dataset ALL \
+          --input_file $results_folder/results.txt \
+          --output_dir $results_folder
 
-  if [ -f "$results_folder/final_result_ALL.txt" ]
-  then
-    echo $file/1314/$e
-    java Scorer ./Evaluation_Datasets/ALL/ALL_n.gold.key.txt $results_folder/final_result_ALL.txt
-  fi
-  done
+      if [ -f "$results_folder/final_result_ALL.txt" ]
+      then
+        echo $file/1314/$e
+        java Scorer ./Evaluation_Datasets/ALL/ALL_n.gold.key.txt $results_folder/final_result_ALL.txt
+      fi
+      done
 done
 
